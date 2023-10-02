@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "1a98c905-c04d-4646-b8c5-d593bda2f3db",
+		"name": "Curso Elastic Search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}",
+					"host": [
+						"{{api_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User - with ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Rick\",\n    \"apellido\": \"Sánchez\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/usuarios/_doc/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Morty\",\n    \"apellido\": \"Smith\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/usuarios/_doc",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/usuarios/_search",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/usuarios/_doc/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Mapping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/usuarios/_mapping",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_mapping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"edad\": 60\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/usuarios/_doc/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User - 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doc\": {\n        \"nombre\": \"Rick\",\n        \"apellido\": \"Sánchez\",\n        \"edad\": 50\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/usuarios/_update/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios",
+						"_update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User False",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"A borrar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/usuarios_false/_doc/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios_false",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/usuarios_false/_doc/1",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios_false",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user Index",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/usuarios_false/",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"usuarios_false",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mapping",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\": {\n        \"properties\": {\n            \"nombre\": { \"type\": \"text\"},\n            \"descripcion\": { \"type\": \"text\" },\n            \"pedidosUltimaHora\": { \"type\": \"integer\" },\n            \"ultimaModificacion\": { \n                \"properties\": {\n                    \"usuario\": { \"type\": \"text\" },\n                    \"fecha\": { \"type\": \"date\" }\n            }  }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Mapping",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"properties\": {\n        \"estado\": { \"type\": \"keyword\" }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_mapping",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_mapping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Plato",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Ensaladisima\",\n    \"descripcion\": \"Aceitunas, cebolla, queso, tomate, aguacate (saludable).\",\n    \"estado\": \"active\",\n    \"pedidosUltimaHora\": 0,\n    \"ultimaModificacion\": {\n        \"usuario\": \"rick@email.com\",\n        \"fecha\": \"2020-01-22\"\n    }\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_doc/2",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_doc",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Platos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Nachos XL\",\n    \"descripcion\": \"Nachos con carne, guacamole, pico de gallo, salsa picante y queso.\",\n    \"estado\": \"active\",\n    \"pedidosUltimaHora\": 11,\n    \"ultimaModificacion\": {\n        \"usuario\": \"jerry@email.com\",\n        \"fecha\": \"2020-03-01\"\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_doc/3",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_doc",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Platos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/platos/_search",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Platos Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"simple_query_string\": {\"query\": \"Bowl pollo saludable\"}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_search",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Platos Search 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"simple_query_string\": {\n            \"query\": \"guacamole picante\",\n            \"fields\": [\"nombreˆ2\", \"descripcion\"]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_search",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booleans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"bool\": {\n            \"must\": {\n                \"match\": { \"descripcion\": \"picante\" }\n            },\n            \"filter\": {\n                \"term\": { \"estado\": \"active\" }\n            },\n            \"must_not\": {\n                \"term\": { \"pedidosUltimaHora\": 0 }\n            },\n            \"should\": [\n                {\"match\": { \"descripcion\": \"aguacate\"} },\n                {\"match\": { \"descripcion\": \"guacamole\"} }\n            ],\n            \"minimum_should_match\": 1\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/platos/_search",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"platos",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": ""
+		}
+	]
+}
